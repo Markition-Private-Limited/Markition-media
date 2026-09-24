@@ -27,7 +27,7 @@ export default function HeroShowcase() {
       const scrolled = Math.max(0, Math.min(total, window.scrollY - sectionTop));
       const progress = scrolled / total;
       progressRef.current = progress;
-      scaleEl.style.transform = `scale(${SCALE_MIN + progress * (SCALE_MAX - SCALE_MIN)})`;
+      scaleEl!.style.transform = `scale(${SCALE_MIN + progress * (SCALE_MAX - SCALE_MIN)})`;
     }
 
     function onScroll() {
@@ -36,8 +36,8 @@ export default function HeroShowcase() {
     }
 
     function onResize() {
-      sectionTop = el.getBoundingClientRect().top + window.scrollY;
-      total = el.offsetHeight - window.innerHeight;
+      sectionTop = el!.getBoundingClientRect().top + window.scrollY;
+      total = el!.offsetHeight - window.innerHeight;
       applyScale();
     }
 
